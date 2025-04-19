@@ -36,3 +36,9 @@ public class LeaderboardService {
         return jedis.zrevrangeWithScores("player_rank", start, end);
     }
 }
+
+1.使用aofrdb混合持久化机制
+2.使用redis sentinel实现redis高可用
+3.redis性能监控
+4.通过rocketmq 将数据异步存储到mysql中
+5.数据分片 避免出现大key 查询多个zet使用lua聚合
