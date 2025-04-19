@@ -15,7 +15,7 @@ public class LeaderboardService {
     // 获取玩家当前排名
     public long getRank(String playerId) {
         Long rank = jedis.zrevrank("player_rank", playerId);
-        return (rank != null) ? rank + 1 : -1; // Rank is 1-based
+        return (rank != null) ? rank + 1 : -1;
     }
 
     // 获取前 N 名玩家
@@ -27,7 +27,7 @@ public class LeaderboardService {
     public Set> getSurroundingRanks(String playerId, int n) {
         long rank = getRank(playerId);
         if (rank == -1) {
-            return null; // Player not found
+            return null;
         }
 
         long start = Math.max(0, rank - n - 1);
